@@ -1,12 +1,13 @@
 # coding:utf-8
 
-import logging.config
 import ConfigParser
-import numpy as np
-import random
 import codecs
+import logging.config
 import os
+import random
 from collections import OrderedDict
+
+import numpy as np
 
 # 获取当前路径
 path = os.getcwd()
@@ -221,7 +222,7 @@ class LDAModel(object):
 
 def pre_processing():
     logger.info(u'载入数据......')
-    with codecs.open(train_file, 'r','utf-8') as f:
+    with codecs.open(train_file, 'r', 'utf-8') as f:
         docs = f.readlines()
     logger.debug(u"载入完成,准备生成字典对象和统计文本数据...")
     data_pre = DataPreProcessing()
