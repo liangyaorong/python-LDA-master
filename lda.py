@@ -113,7 +113,7 @@ class LDAModel(object):
         for x in xrange(len(self.Z)):
             self.nd_sum[x] = self.data_pre.docs[x].length
             for y in xrange(self.data_pre.docs[x].length):
-                topic = random.randint(0,self.K-1)
+                topic = random.randint(0, self.K-1)
                 self.Z[x][y] = topic
                 self.nw[self.data_pre.docs[x].words[y]][topic] += 1
                 self.nd[x][topic] += 1
@@ -237,7 +237,7 @@ def pre_processing():
             # 生成一个文档对象
             doc = Document()
             for item in tmp:
-                if data_pre.word2id.has_key(item):
+                if item in data_pre.word2id:
                     doc.words.append(data_pre.word2id[item])
                 else:
                     data_pre.word2id[item] = items_idx
