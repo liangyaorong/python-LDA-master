@@ -25,13 +25,13 @@ conf = ConfigParser.ConfigParser()
 conf.read("setting.conf")
 
 # 文件路径
-train_file = os.path.join(path, os.path.normpath(conf.get("filepath", "trainfile")))
-word_id_map_file = os.path.join(path,  os.path.normpath(conf.get("filepath", "wordidmapfile")))
-theta_file = os.path.join(path, os.path.normpath(conf.get("filepath", "thetafile")))
-phi_file = os.path.join(path, os.path.normpath(conf.get("filepath", "phifile")))
-param_file = os.path.join(path, os.path.normpath(conf.get("filepath", "paramfile")))
-top_N_file = os.path.join(path, os.path.normpath(conf.get("filepath", "topNfile")))
-tassgin_file = os.path.join(path, os.path.normpath(conf.get("filepath", "tassginfile")))
+train_file = os.path.join(path, os.path.normpath(conf.get("file_path", "train_file")))
+word_id_map_file = os.path.join(path, os.path.normpath(conf.get("file_path", "word_id_map_file")))
+theta_file = os.path.join(path, os.path.normpath(conf.get("file_path", "theta_file")))
+phi_file = os.path.join(path, os.path.normpath(conf.get("file_path", "phi_file")))
+param_file = os.path.join(path, os.path.normpath(conf.get("file_path", "param_file")))
+top_N_file = os.path.join(path, os.path.normpath(conf.get("file_path", "top_N_file")))
+tassgin_file = os.path.join(path, os.path.normpath(conf.get("file_path", "tassgin_file")))
 
 # 模型初始参数
 K = int(conf.get("model_args", "K"))
@@ -69,7 +69,10 @@ class LDAModel(object):
         self.data_pre = data_pre
 
         # 模型参数
-        # 聚类个数K，迭代次数iter_times,每个类特征词个数top_words_num,超参数α（alpha） β(beta)
+        # 聚类个数K
+        # 迭代次数iter_times
+        # 每个类特征词个数top_words_num
+        # 超参数α(alpha) β(beta)
         self.K = K
         self.beta = beta
         self.alpha = alpha
